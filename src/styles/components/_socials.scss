@@ -1,0 +1,8 @@
+.social {
+  max-width: 20px;
+  display: inline-block;
+
+  & + & {
+    margin-left: 10px;
+  }
+}

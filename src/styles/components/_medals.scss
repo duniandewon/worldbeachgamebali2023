@@ -1,0 +1,59 @@
+.medals {
+  width: 100%;
+  min-height: 150px;
+  overflow-y: auto;
+  border-radius: 15px;
+  box-shadow: 0px 4px 4px 5px rgba(0, 0, 0, 0.1);
+  padding: 15px 20px 15px 15px;
+  margin-top: 20px;
+  order: -1;
+
+  &__row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    & + & {
+      margin-top: 5px;
+    }
+  }
+
+  &__country {
+    flex: 1;
+  }
+
+  &__number {
+    max-width: 10%;
+    min-width: 20px;
+    text-align: center;
+  }
+
+  &__medal {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    text-align: center;
+
+    & + & {
+      margin-left: 10px;
+    }
+
+    &--gold {
+      background-color: #cfb53b;
+    }
+
+    &--silver {
+      background-color: #e0e0e0;
+    }
+
+    &--bronz {
+      background-color: #b08d57;
+    }
+  }
+
+  @media (min-width: 1300px) {
+    order: 0;
+    width: 30%;
+    height: 100%;
+  }
+}

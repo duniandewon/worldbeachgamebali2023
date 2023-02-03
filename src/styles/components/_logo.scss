@@ -1,0 +1,11 @@
+@use "../abstracts";
+
+.logo {
+  display: flex;
+  align-items: center;
+  flex: 1;
+
+  & > img {
+    max-width: 35px;
+  }
+}
