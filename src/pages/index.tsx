@@ -1,3 +1,15 @@
+import Navbar from "@/components/Navbar";
+
+import { usePostsPreview } from "@/hooks";
+
 export default function Home() {
-  return <div>hello</div>;
+  const { data, error } = usePostsPreview();
+
+  if (error) return <p>Something went wrong</p>;
+
+  return (
+    <div>
+      <Navbar />
+    </div>
+  );
 }
