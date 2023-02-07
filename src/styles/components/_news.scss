@@ -2,7 +2,7 @@
   max-height: 400;
   overflow-y: auto;
   margin-top: 20px;
-  
+
   @media (min-width: 1300px) {
     flex: 1;
     height: 100%;
@@ -10,6 +10,9 @@
 }
 
 .news {
+  & + & {
+    margin-top: 20px;
+  }
 
   &__main-content {
     padding: 0 15px;

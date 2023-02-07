@@ -1,4 +1,9 @@
 @font-face {
-  font-family: Product;
-  src: url("") format();
+  font-family: "Product Bold";
+  src: url("/fonts/ProductSansBold.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Product Regular";
+  src: url("/fonts/ProductSansRegular.ttf") format("truetype");
 }
