@@ -1,9 +1,14 @@
+import { GetStaticProps, InferGetStaticPropsType } from "next";
+import Image from "next/image";
 import { useMemo } from "react";
 
 import { Medal } from "@/assets/icons";
 import Wrapper from "@/components/Wrapper";
 
 import { usePostsPreview } from "@/hooks";
+
+import { IPost } from "@/interfaces";
+import Link from "next/link";
 
 const medals = [
   {
@@ -100,7 +105,7 @@ const medals = [
 ];
 
 export default function Home() {
-  const { data, error } = usePostsPreview();
+  const { data } = usePostsPreview();
 
   return (
     <Wrapper title="Home">
@@ -116,7 +121,41 @@ export default function Home() {
       </header>
       <section className="main-content">
         <section id="news-list" className="news-list">
-          {/* Get posts from data and loop them */}
+          {useMemo(
+            () =>
+              data?.map((post: IPost) => (
+                <div className="news" key={post.id}>
+                  {post.featuredImage && (
+                    <div className="news__thumbnail">
+                      <Image
+                        src={post.featuredImage.node.sourceUrl}
+                        alt="thumbnail"
+                      />
+                    </div>
+                  )}
+                  <div className="news__main-content">
+                    <div className="news__date">
+                      <div className="news__icon">
+                        {/* <img src="/icons/voli.svg" alt="voli" /> */}
+                      </div>
+                      <div className="news__separator"></div>
+                      <div className="news__date">{post.date}</div>
+                    </div>
+                    <Link href={`/posts/${post.slug}`}>
+                      <h2
+                        className="news__title"
+                        dangerouslySetInnerHTML={{ __html: post.title }}
+                      />
+                    </Link>
+                    <p
+                      className="news__description"
+                      dangerouslySetInnerHTML={{ __html: post.excerpt }}
+                    />
+                  </div>
+                </div>
+              )),
+            [data]
+          )}
         </section>
 
         <section className="medals">

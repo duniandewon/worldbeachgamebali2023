@@ -1,34 +1,10 @@
-import { request, gql } from "graphql-request";
+import { QEURY_ALL_POSTS } from "@/data/posts";
+import { request } from "graphql-request";
 
-const getPreviewPosts = async (limit: number = 20) => {
+const getPreviewPosts = async () => {
   const res = await request(
     "http://awbgbali2023.local/graphql",
-    gql`
-      query PostsPreview {
-        posts(first: ${limit}, where: { orderby: { field: DATE, order: DESC } }) {
-          nodes {
-            id
-            title
-            excerpt
-            slug
-            date
-            isSticky
-            categories {
-              nodes {
-                id
-                name
-              }
-            }
-            featuredImage {
-              node {
-                sourceUrl
-                altText
-              }
-            }
-          }
-        }
-      }
-    `
+    QEURY_ALL_POSTS
   );
 
   return res;
