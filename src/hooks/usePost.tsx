@@ -4,7 +4,7 @@ import { useQuery } from "react-query";
 import { getPostAndMorePosts } from "@/apis";
 
 const usePostsPreview = (slug: string | string[] | undefined) => {
-  const { data, error, isLoading } = useQuery("post", () =>
+  const { data, error, isLoading } = useQuery(["post", slug], () =>
     getPostAndMorePosts(slug)
   );
 
