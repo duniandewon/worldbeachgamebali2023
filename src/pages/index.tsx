@@ -8,6 +8,7 @@ import { usePostsPreview } from "@/hooks";
 import { IPost } from "@/interfaces";
 import Link from "next/link";
 import Medals from "@/components/medals";
+import PostPreview from "@/components/PostPreview";
 
 export default function Home() {
   const { data } = usePostsPreview();
@@ -30,35 +31,7 @@ export default function Home() {
           {useMemo(
             () =>
               data?.map((post: IPost) => (
-                <div className="news" key={post.id}>
-                  {post.featuredImage && (
-                    <div className="news__thumbnail">
-                      <Image
-                        src={post.featuredImage.node.sourceUrl}
-                        alt="thumbnail"
-                      />
-                    </div>
-                  )}
-                  <div className="news__main-content">
-                    <div className="news__date">
-                      <div className="news__icon">
-                        {/* <img src="/icons/voli.svg" alt="voli" /> */}
-                      </div>
-                      <div className="news__separator"></div>
-                      <div className="news__date">{post.date}</div>
-                    </div>
-                    <Link href={`/posts/${post.slug}`}>
-                      <h2
-                        className="news__title"
-                        dangerouslySetInnerHTML={{ __html: post.title }}
-                      />
-                    </Link>
-                    <p
-                      className="news__description"
-                      dangerouslySetInnerHTML={{ __html: post.excerpt }}
-                    />
-                  </div>
-                </div>
+                <PostPreview post={post} key={post.id} />
               )),
             [data]
           )}
