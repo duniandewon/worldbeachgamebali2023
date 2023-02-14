@@ -19,6 +19,7 @@
   }
 
   &__date {
+    margin-top: 15px;
     display: flex;
     align-items: center;
     gap: 5px;
@@ -39,23 +40,15 @@
   }
 
   &__title {
-    margin-top: 10px;
   }
-
+  
   &__description {
     margin-top: 5px;
   }
 
+
   @media (min-width: 1300px) {
     display: flex;
     align-items: center;
-
-    &__date {
-      margin-top: 0;
-    }
-
-    &__thumbnail {
-      max-width: 35%;
-    }
   }
 }
