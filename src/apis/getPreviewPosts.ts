@@ -3,7 +3,7 @@ import { request } from "graphql-request";
 
 const getPreviewPosts = async () => {
   const res = await request(
-    "http://awbgbali2023.local/graphql",
+    "https://testawbgbali2023wp.com/graphql",
     QEURY_ALL_POSTS
   );
 
