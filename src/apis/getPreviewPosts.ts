@@ -3,7 +3,7 @@ import { request } from "graphql-request";
 
 const getPreviewPosts = async () => {
   const res = await request(
-    "https://testawbgbali2023wp.com/graphql",
+    process.env.NEXT_PUBLIC_WORDPRESS_API_URL!,
     QEURY_ALL_POSTS
   );
 
