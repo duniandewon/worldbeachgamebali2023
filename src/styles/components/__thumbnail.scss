@@ -2,4 +2,8 @@
   position: relative;
   width: 800px;
   height: 100px;
+
+  & > img {
+    border-radius: 15px;
+  }
 }

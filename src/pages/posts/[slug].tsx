@@ -46,7 +46,7 @@ const Post = () => {
       {posts?.map(
         (post: IPost) =>
           post?.slug !== slug && (
-            <PostPreview post={post} key={post.id} showThumbnail={false} />
+            <PostPreview post={post} key={post.id} showExcerpt={false} />
           )
       )}
     </div>

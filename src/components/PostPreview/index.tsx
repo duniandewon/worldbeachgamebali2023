@@ -6,29 +6,29 @@ import PostDate from "../Date";
 
 interface Props {
   post: IPost;
-  showThumbnail?: Boolean;
+  showExcerpt?: Boolean;
 }
 
-const PostPreview = ({ post, showThumbnail = true }: Props) => {
+const PostPreview = ({ post, showExcerpt = true }: Props) => {
   return (
     <div className="news">
-      {showThumbnail && (
-        <div className="thumbnail">
-          <Image src={post.featuredImage.node.sourceUrl} alt="thumbnail" fill />
-        </div>
-      )}
+      <Link href={`/posts/${post.slug}`} className="thumbnail">
+        <Image src={post.featuredImage.node.sourceUrl} alt="thumbnail" fill />
+      </Link>
       <div className="news__main-content">
+        <PostDate date={post.date} place="Bali" />
         <Link href={`/posts/${post.slug}`}>
           <h2
             className="news__title"
             dangerouslySetInnerHTML={{ __html: post.title }}
           />
         </Link>
-        <PostDate date={post.date} place="Bali" />
-        <p
-          className="news__description"
-          dangerouslySetInnerHTML={{ __html: post.excerpt }}
-        />
+        {showExcerpt && (
+          <p
+            className="news__description"
+            dangerouslySetInnerHTML={{ __html: post.excerpt }}
+          />
+        )}
       </div>
     </div>
   );
