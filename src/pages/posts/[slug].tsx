@@ -8,6 +8,7 @@ import { usePost } from "@/hooks";
 
 import { IPost } from "@/interfaces";
 import Image from "next/image";
+import PostDate from "@/components/Date";
 
 const Post = () => {
   const { query } = useRouter();
@@ -21,22 +22,22 @@ const Post = () => {
   const renderArticle = () => (
     <article className="article">
       <h1 dangerouslySetInnerHTML={{ __html: post?.title }}></h1>
-      <div className="news__date">
-        <div className="news__icon">
-          {/* <img src="/icons/voli.svg" alt="voli" /> */}
-        </div>
-        <div className="news__separator"></div>
-        <div className="news__date">{post?.date}</div>
-      </div>
-      <div className="image">
+      <PostDate date={post?.date} place="Bali" />
+      <div className="article__image">
         <Image
           src={post?.featuredImage?.node?.sourceUrl}
           alt="thumbnail"
-         fill
+          fill
         />
       </div>
-      <div dangerouslySetInnerHTML={{ __html: post?.content }} />
-      <div dangerouslySetInnerHTML={{ __html: post?.content }} />
+      <div
+        className="article__content"
+        dangerouslySetInnerHTML={{ __html: post?.content }}
+      />
+      <div
+        className="article__content"
+        dangerouslySetInnerHTML={{ __html: post?.content }}
+      />
     </article>
   );
 
@@ -44,7 +45,9 @@ const Post = () => {
     <div className="more-posts">
       {posts?.map(
         (post: IPost) =>
-          post?.slug !== slug && <PostPreview post={post} key={post.id} />
+          post?.slug !== slug && (
+            <PostPreview post={post} key={post.id} showThumbnail={false} />
+          )
       )}
     </div>
   );

@@ -2,11 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 
 import { IPost } from "@/interfaces";
+import PostDate from "../Date";
 
-const PostPreview = ({ post }: { post: IPost }) => {
+interface Props {
+  post: IPost;
+  showThumbnail?: Boolean;
+}
+
+const PostPreview = ({ post, showThumbnail = true }: Props) => {
   return (
     <div className="news">
-      {post.featuredImage && (
+      {showThumbnail && (
         <div className="thumbnail">
           <Image src={post.featuredImage.node.sourceUrl} alt="thumbnail" fill />
         </div>
@@ -18,13 +24,7 @@ const PostPreview = ({ post }: { post: IPost }) => {
             dangerouslySetInnerHTML={{ __html: post.title }}
           />
         </Link>
-        <div className="news__date">
-          <div className="news__icon">
-            {/* <img src="/icons/voli.svg" alt="voli" /> */}
-          </div>
-          <div className="news__separator"></div>
-          <div className="news__date">{post.date}</div>
-        </div>
+        <PostDate date={post.date} place="Bali" />
         <p
           className="news__description"
           dangerouslySetInnerHTML={{ __html: post.excerpt }}
