@@ -1,14 +1,13 @@
-import Image from "next/image";
 import { useMemo } from "react";
 
 import Wrapper from "@/components/Wrapper";
 
-import { usePostsPreview } from "@/hooks";
-
-import { IPost } from "@/interfaces";
-import Link from "next/link";
 import Medals from "@/components/medals";
 import PostPreview from "@/components/PostPreview";
+import Schedule from "@/components/Schedule";
+
+import { usePostsPreview } from "@/hooks";
+import { IPost } from "@/interfaces";
 
 export default function Home() {
   const { data } = usePostsPreview();
@@ -26,6 +25,7 @@ export default function Home() {
         </div>
       </header>
       <section className="main-content">
+        <Schedule />
         <Medals />
         <section id="news-list" className="news-list">
           {useMemo(

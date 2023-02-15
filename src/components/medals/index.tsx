@@ -97,7 +97,7 @@ const medals = [
 
 const Medals = () => {
   return (
-    <section className="medals">
+    <div className="medals">
       <div className="medals__row">
         <div className="medals__number">
           <Medal />
@@ -120,7 +120,7 @@ const Medals = () => {
           )),
         []
       )}
-    </section>
+    </div>
   );
 };
 

@@ -5,6 +5,7 @@
 
 @use "./components/article";
 @use "./components/_date";
+@use "./components/day";
 @use "./components/hero";
 @use "./components/logo";
 @use "./components/main-content";
@@ -12,6 +13,7 @@
 @use "./components/more-posts";
 @use "./components/navbar";
 @use "./components/news";
+@use "./components/schedule";
 @use "./components/socials";
 @use "./components/_thumbnail";
 @use "./components/wrapper";

@@ -1,14 +1,14 @@
+import Image from "next/image";
 import { useRouter } from "next/router";
 
-import Wrapper from "@/components/Wrapper";
-import PostPreview from "@/components/PostPreview";
 import Medals from "@/components/medals";
+import PostDate from "@/components/Date";
+import PostPreview from "@/components/PostPreview";
+import Wrapper from "@/components/Wrapper";
 
 import { usePost } from "@/hooks";
-
 import { IPost } from "@/interfaces";
-import Image from "next/image";
-import PostDate from "@/components/Date";
+import Schedule from "@/components/Schedule";
 
 const Post = () => {
   const { query } = useRouter();
@@ -58,6 +58,7 @@ const Post = () => {
         {renderArticle()}
         <aside className="post__aside">
           {renderMorePosts()}
+          <Schedule />
           <Medals />
         </aside>
       </div>
