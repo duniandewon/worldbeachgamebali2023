@@ -1,29 +1,55 @@
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/router";
 
-import { Instagram, Twitter, Youtube } from "@/assets/icons";
+import SearchBox from "../SearchBox";
+import Language from "../SelectLanguange";
 
 const Navbar = () => {
+  const links = [
+    {
+      href: "/",
+      label: "home",
+    },
+    {
+      href: "/about",
+      label: "about",
+    },
+    {
+      href: "/calender",
+      label: "calender",
+    },
+    {
+      href: "/news",
+      label: "news",
+    },
+  ];
+
+  const router = useRouter();
   return (
-    <nav className="navbar">
+    <header className="navbar">
       <Link href="/" className="logo">
         <Image src="/logo.svg" alt="logo" width={20} height={20} />
         <p>
           2<sup>nd</sup> AWBG BALI 2023
         </p>
       </Link>
-      <div className="socials">
-        <Link href="https://www.twitter.com" target="_blank" className="social">
-          <Twitter />
-        </Link>
-        <Link href="https://www.instagram.com" target="_blank" className="social">
-          <Instagram />
-        </Link>
-        <Link href="https://www.yputube.com" target="_blank" className="social">
-          <Youtube />
-        </Link>
-      </div>
-    </nav>
+      <nav className="navigation">
+        {links.map((link) => (
+          <Link
+            href={link.href}
+            className={`navigation__item ${
+              router.pathname === link.href ? "active" : ""
+            }`}
+            key={link.href}
+          >
+            {link.label}
+          </Link>
+        ))}
+      </nav>
+      <SearchBox />
+      <Language />
+    </header>
   );
 };
 

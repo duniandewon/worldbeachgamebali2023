@@ -1,0 +1,23 @@
+.searchbox {
+  position: relative;
+
+  &__icon {
+    position: absolute;
+    top: 55%;
+    left: 7px;
+    transform: translateY(-50%);
+    display: flex;
+    pointer-events: none;
+  }
+
+  & > input {
+    padding: 0.4rem 0 0.4rem 2rem;
+    border: 1px solid #000000;
+    border-radius: 10px;
+    font-size: 14px;
+
+    &::placeholder {
+      opacity: 0.3;
+    }
+  }
+}

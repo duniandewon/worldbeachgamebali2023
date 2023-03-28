@@ -1,34 +1,39 @@
 import Image from "next/image";
-import Link from "next/link";
+
+import Moment from "react-moment";
 
 import { IPost } from "@/interfaces";
-import PostDate from "../Date";
 
 interface Props {
   post: IPost;
-  showExcerpt?: Boolean;
+  key: string;
 }
 
-const PostPreview = ({ post, showExcerpt = true }: Props) => {
+const PostPreview = ({ post, key }: Props) => {
   return (
-    <div className="news">
-      <Link href={`/posts/${post.slug}`} className="thumbnail">
-        <Image src={post.featuredImage.node.sourceUrl} alt="thumbnail" fill />
-      </Link>
-      <div className="news__main-content">
-        <PostDate date={post.date} place="Bali" />
-        <Link href={`/posts/${post.slug}`}>
-          <h2
-            className="news__title"
-            dangerouslySetInnerHTML={{ __html: post.title }}
-          />
-        </Link>
-        {showExcerpt && (
-          <p
-            className="news__description"
-            dangerouslySetInnerHTML={{ __html: post.excerpt }}
-          />
-        )}
+    <div key={key} className="post-preview">
+      <div className="post-preview__image">
+        <Image
+          src={post.featuredImage.node.sourceUrl}
+          alt={post.featuredImage.node.altText}
+          fill
+        />
+      </div>
+      <div className="post-preview__body">
+        <h3
+          className="post-preview__title"
+          dangerouslySetInnerHTML={{ __html: post.title }}
+        />
+        <div className="post-preview__category-date">
+          <p className="post-preview__category">category berita</p>
+          <p className="post-preview__date">
+            <Moment format="DD MMMM YYYY">{post.date}</Moment>
+          </p>
+        </div>
+        <p
+          className="post-preview__excerpt"
+          dangerouslySetInnerHTML={{ __html: post.excerpt }}
+        />
       </div>
     </div>
   );

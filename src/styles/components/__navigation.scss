@@ -1,0 +1,20 @@
+.navigation {
+  margin: 0 auto;
+
+  &__item {
+    padding: 0.438rem 0.875rem;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    border-radius: 10px;
+
+    & + & {
+      margin-left: 1rem;
+    }
+
+    &.active {
+      background: linear-gradient(100.63deg, #fde051 21.65%, #febd3e 119.85%);
+      box-shadow: inset 5px 1px 4px rgba(0, 0, 0, 0.06);
+      color: #fff;
+    }
+  }
+}

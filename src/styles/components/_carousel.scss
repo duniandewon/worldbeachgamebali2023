@@ -1,0 +1,82 @@
+.carousel {
+  display: flex;
+  align-items: center;
+  margin-top: 2rem;
+  position: relative;
+
+  &__body {
+    position: relative;
+    width: 30%;
+    z-index: 1;
+  }
+
+  &__image {
+    position: relative;
+    width: 80%;
+    height: 500px;
+    margin-left: -8rem;
+  }
+
+  &__dots {
+    display: flex;
+    gap: 1.2rem;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    & > div {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: inset 1px 1px 1px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+
+      &.active {
+        background: linear-gradient(100.63deg, #fde051 21.65%, #febd3e 119.85%);
+      }
+    }
+  }
+
+  &__navs {
+    display: flex;
+    gap: 10rem;
+  }
+
+  &__nav {
+    background-color: transparent;
+    border: 0;
+    color: #febd3e;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    &:disabled {
+      color: #000000;
+      opacity: 0.3;
+      cursor: default;
+    }
+  }
+}
+
+.sticky-post {
+  margin-bottom: 1.25rem;
+
+  &__title {
+    font-size: 2rem;
+    color: #005f72;
+    margin-bottom: 0.5rem;
+  }
+
+  &__category {
+    color: #febd3e;
+    font-size: 1rem;
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+
+  &__excerpt {
+    margin-top: 1.25rem;
+  }
+}

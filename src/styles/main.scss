@@ -4,16 +4,19 @@
 @use "./pages/post";
 
 @use "./components/article";
+@use "./components/carousel";
 @use "./components/_date";
 @use "./components/day";
-@use "./components/hero";
 @use "./components/logo";
-@use "./components/main-content";
 @use "./components/medals";
 @use "./components/more-posts";
+@use "./components/post-preview";
 @use "./components/navbar";
+@use "./components/_navigation";
 @use "./components/news";
+@use "./components/searchbox";
 @use "./components/schedule";
+@use "./components/selectlanguange";
 @use "./components/socials";
 @use "./components/_thumbnail";
 @use "./components/wrapper";
