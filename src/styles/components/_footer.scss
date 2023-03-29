@@ -1,0 +1,21 @@
+.footer {
+  margin-top: 5rem;
+  padding: 1.25rem;
+  border: 1px solid;
+  border-image-slice: 1;
+  border-width: 5px;
+  border-image-source: linear-gradient(
+    180deg,
+    #f7bc2d 0%,
+    #fce146 0.01%,
+    #f7be2e 100%
+  );
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 0;
+  font-weight: 700;
+
+  & > a {
+    justify-content: center;
+  }
+}

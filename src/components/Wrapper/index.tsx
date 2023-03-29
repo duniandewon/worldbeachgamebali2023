@@ -2,7 +2,8 @@ import Head from "next/head";
 
 import { ReactNode } from "react";
 
-import Navbar from "../Navbar";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 interface Props {
   children: ReactNode;
@@ -19,6 +20,7 @@ const Wrapper = ({ children, title }: Props) => {
       </Head>
       <Navbar />
       {children}
+      <Footer />
     </div>
   );
 };
